@@ -1,4 +1,4 @@
 ---
-- hosts: all
+- hosts: vc.east-1.archi.lab
   tasks:
   - ping: 
