@@ -2,5 +2,5 @@
 - hosts: localhost
   tasks:
   - name: 
-    netcommon.net_ping: 
+    net_ping: 
       dest: ip
