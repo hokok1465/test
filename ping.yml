@@ -2,11 +2,5 @@
 - hosts: localhost
   tasks:
   - name: 
-    add_host: 
-      hostname: "{{ item.hostname }}" 
-      group: remote_hosts
-    with_items: "{{ machine }}"
-- name: ping 
-  hosts: remote_hosts
-  tasks:
-  - ping: 
+    netcommon.net_ping: 
+      dest: ip
