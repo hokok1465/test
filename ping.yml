@@ -4,4 +4,4 @@
   - name: 
     shell: ping -c 1 {{ ip }}
     args: 
-      executable: /bin/bash
+      executable: /usr/bin/ping
