@@ -2,4 +2,4 @@
 - hosts: localhost
   tasks:
   - name: 
-    shell: ping -c 1 {{ ip }}
+    shell: /usr/bin/ping -c 1 {{ ip }}
