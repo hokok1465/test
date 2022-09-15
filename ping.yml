@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: all
   tasks:
   - name: 
     command: /usr/bin/ping -c 1 {{ ip }}
