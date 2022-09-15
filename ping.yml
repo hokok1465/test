@@ -2,6 +2,6 @@
 - hosts: localhost
   tasks:
   - name: 
-    shell: ping -c 1 {{ ip }}
+    shell: /usr/bin/ping -c 1 {{ ip }}
     args: 
-      executable: /usr/bin/ping
+      executable: /bin/bash
