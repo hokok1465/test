@@ -2,5 +2,4 @@
 - hosts: localhost
   tasks:
   - name: 
-    net_ping: 
-      dest: '{{ ip  }}'
+    shell: ping -c 1 {{ ip }}
