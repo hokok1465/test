@@ -1,0 +1,41 @@
+! Configuration File for keepalived
+ 
+global_defs {
+  default_interface {{ ens192 }}
+}
+vrrp_instance VI_1 {
+  state {{ MASTER }}
+  interface {{ ens192 }}
+  virtual_router_id 51
+  priority 101
+  authentication {
+    auth_type PASS
+    auth_pass ABC
+  }
+  unicast_peer {
+    {{ ControlVM2_RIP(mgmt nw) }}
+  }
+  
+  virtual_ipaddress {
+    {{ ControlVM_VIP(mgmt nw) }}
+  }
+}
+vrrp_instance VI_2 {
+  state {{ MASTER }}
+  interface {{ ens224 }}
+  virtual_router_id 52
+  priority 101
+  authentication {
+    auth_type PASS
+    auth_pass ABC
+  }
+  unicast_peer {
+    {{ ControlVM2_RIP(migration nw) }}
+  }
+  virtual_ipaddress {
+    {{ ControlVM_VIP(migration nw) }}
+  }
+  virtual_routes {
+    {{ migrationNW/mask }} dev {{ ens224 }} src {{ ControlVM VIP(migration nw) }} metric 10
+  }
+}
